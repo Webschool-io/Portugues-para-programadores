@@ -1,41 +1,25 @@
-const conjunções = {
-  aditivas: [
-    ' e ', 
-    ' nem ', 
-    ' mas também'  , 
-    ' como também ', 
-    ' bem como ', 
-    ' mas ainda ', 
-    ' não só… mas também ', 
-    ' não só… como também ', 
-    ' não só… bem como '
-  ],
-  adversativas: [
-    ' mas ',
-    ' porém ',
-    ' todavia ',
-    ' contudo ',
-    ' não obstante ',
-    ' entretanto ',
-    ' no entanto ',
-    ' entanto '
-  ]
-}
+const conjunções = require('lista_conjuncoes')
 
 const classficaConjuncoes = (frase) => {
 
   const classificacoes = []
-  const achaConjuncaoAditiva = (conjuncao, index) => {
+
+  conjunções.aditivas.forEach((conjuncao, index) => {
     if (frase.includes(conjuncao)) 
       classificacoes.push({conjuncao, tipo: 'Aditiva'})
-  }
-  const achaConjuncaoAdversativas = (conjuncao, index) => {
+  })
+
+  conjunções.adversativas.forEach((conjuncao, index) => {
     if (frase.includes(conjuncao)) 
       classificacoes.push({conjuncao, tipo: 'Adversativas'})
-  }
-  conjunções.aditivas.forEach(achaConjuncaoAditiva)
-  conjunções.adversativas.forEach(achaConjuncaoAdversativas)
+  })
   return classificacoes
 }
 
-console.log(classficaConjuncoes('Eu gosto de JS mas você não e isso me chateia, snif.'))
+let frase = 'Eu gosto de JS mas você não e isso me chateia, snif.'
+console.log(frase)
+console.log(classficaConjuncoes(frase))
+
+frase = 'Eu não gostava de Química, porém, entretanto, todavia, contudo hoje eu gosto.'
+console.log(frase)
+console.log(classficaConjuncoes(frase))
