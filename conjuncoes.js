@@ -1,11 +1,5 @@
 const conjunções = require('./lista_conjuncoes')
 
-const groupBy = (xs, key) =>
-  xs.reduce((rv, x) => {
-    (rv[x[key]] = rv[x[key]] || []).push(x);
-    return rv;
-  }, {})
-
 const filtraConjunções = (conjuncao) => 
     (frase.includes(conjuncao)) ? conjuncao : false
 
@@ -15,8 +9,6 @@ const mapeiaAditivas = (conjunção, i) =>
 const mapeiaAdversativas = (conjunção, i) => 
   ({conjunção, tipo: 'Adversativa'})
 
-const key = 'tipo'
-
 const classficaConjuncoes = (frase) => 
     conjunções.aditivas.filter( filtraConjunções )
     .map( mapeiaAditivas )
@@ -25,7 +17,7 @@ const classficaConjuncoes = (frase) =>
     .map( mapeiaAdversativas )
   )
   .reduce((rv, x) => {
-    (rv[x[key]] = rv[x[key]] || []).push(x['conjunção']);
+    (rv[x['tipo']] = rv[x['tipo']] || []).push(x['conjunção']);
     return rv;
   }, {})
 
