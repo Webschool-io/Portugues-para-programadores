@@ -2,18 +2,18 @@ const conjunções = require('lista_conjuncoes')
 
 const classficaConjuncoes = (frase) => {
 
-  const classificacoes = []
-
-  conjunções.aditivas.forEach((conjuncao, index) => {
+  const classificacoes = conjunções.aditivas.map((conjuncao, index) => {
     if (frase.includes(conjuncao)) 
-      classificacoes.push({conjuncao, tipo: 'Aditiva'})
+      return {conjuncao, tipo: 'Aditiva'}
   })
 
-  conjunções.adversativas.forEach((conjuncao, index) => {
+  conjunções.adversativas.map((conjuncao, index) => {
     if (frase.includes(conjuncao)) 
-      classificacoes.push({conjuncao, tipo: 'Adversativas'})
-  })
+      return {conjuncao, tipo: 'Adversativas'}
+  }).concat(classificacoes)
+  
   return classificacoes
+  
 }
 
 let frase = 'Eu gosto de JS mas você não e isso me chateia, snif.'
