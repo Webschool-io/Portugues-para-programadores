@@ -7,12 +7,10 @@ const classficaConjuncoes = (frase) => {
       return {conjuncao, tipo: 'Aditiva'}
   })
 
-  conjunções.adversativas.map((conjuncao, index) => {
+  return conjunções.adversativas.map((conjuncao, index) => {
     if (frase.includes(conjuncao)) 
       return {conjuncao, tipo: 'Adversativas'}
   }).concat(classificacoes)
-  
-  return classificacoes
   
 }
 
