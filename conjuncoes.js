@@ -1,13 +1,20 @@
 const conjunções = require('./lista_conjuncoes')
 
-const classficaConjuncoes = (frase) => 
-  conjunções.aditivas.filter((conjuncao) => 
+const filtraConjunções = (conjuncao) => 
     (frase.includes(conjuncao)) ? conjuncao : false
-  )
-  .map((conjunção, i) => ({conjunção, tipo: 'Aditiva'}))
-  .concat( conjunções.adversativas.filter((conjuncao) => 
-    (frase.includes(conjuncao)) ? conjuncao : false )
-    .map((conjunção, i) => ({conjunção, tipo: 'Adversativas'}))
+
+const mapeiaAditivas = (conjunção, i) => 
+  ({conjunção, tipo: 'Aditiva'})
+  
+const mapeiaAdversativas = (conjunção, i) => 
+  ({conjunção, tipo: 'Adversativa'})
+
+const classficaConjuncoes = (frase) => 
+    conjunções.aditivas.filter( filtraConjunções )
+    .map( mapeiaAditivas )
+  .concat( 
+    conjunções.adversativas.filter( filtraConjunções )
+    .map( mapeiaAdversativas )
   )
 
 let frase = 'Eu gosto de JS mas você não e isso me chateia, snif.'
