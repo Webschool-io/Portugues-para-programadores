@@ -9,6 +9,11 @@ const mapeiaAditivas = (conjunção, i) =>
 const mapeiaAdversativas = (conjunção, i) => 
   ({conjunção, tipo: 'Adversativa'})
 
+const limpaObjeto = (rv, x) => {
+  (rv[x['tipo']] = rv[x['tipo']] || []).push(x['conjunção'])
+  return rv
+}
+
 const classficaConjuncoes = (frase) => 
     conjunções.aditivas.filter( filtraConjunções )
     .map( mapeiaAditivas )
@@ -16,10 +21,7 @@ const classficaConjuncoes = (frase) =>
     conjunções.adversativas.filter( filtraConjunções )
     .map( mapeiaAdversativas )
   )
-  .reduce((rv, x) => {
-    (rv[x['tipo']] = rv[x['tipo']] || []).push(x['conjunção']);
-    return rv;
-  }, {})
+  .reduce( limpaObjeto, {})
 
 let frase = 'Eu gosto de JS mas você não e isso me chateia, snif.'
 console.log(frase)
