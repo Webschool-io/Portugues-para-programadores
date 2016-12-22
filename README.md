@@ -53,3 +53,80 @@ const acentuacao = (palavra) => {
   return "paroxítona"
 }
 ```
+
+## Conjunções
+
+Nesse código iremos achar quais conjunções fazem parte da frase e também classifica-las.
+
+Esse é o meu código antigo, de 2 meses atrás, ainda utilizava funções impuras:
+
+
+```js
+const conjunções = require('lista_conjuncoes')
+
+const classficaConjuncoes = (frase) => {
+
+  const classificacoes = []
+
+  conjunções.aditivas.forEach((conjuncao, index) => {
+    if (frase.includes(conjuncao)) 
+      classificacoes.push({conjuncao, tipo: 'Aditiva'})
+  })
+
+  conjunções.adversativas.forEach((conjuncao, index) => {
+    if (frase.includes(conjuncao)) 
+      classificacoes.push({conjuncao, tipo: 'Adversativas'})
+  })
+  return classificacoes
+}
+
+let frase = 'Eu gosto de JS mas você não e isso me chateia, snif.'
+console.log(frase)
+console.log(classficaConjuncoes(frase))
+
+frase = 'Eu não gostava de Química, porém, entretanto, todavia, contudo hoje eu gosto.'
+console.log(frase)
+console.log(classficaConjuncoes(frase))
+```
+
+
+Perceba que para classificar eu uso o `forEach` dando `push` de um objeto no *Array* `classificacoes`, na programação funcional devemos eliminar os efeitos colaterais pois qualquer outra função poderia modificar esse *Array*.
+
+> Agora vamos fazer do jeito certo!
+
+### Refatorado
+
+```js
+const conjunções = require('./lista_conjuncoes')
+
+const filtraConjunções = (conjuncao) => 
+    (frase.includes(conjuncao)) ? conjuncao : false
+
+const mapeiaAditivas = (conjunção, i) => 
+  ({conjunção, tipo: 'Aditiva'})
+  
+const mapeiaAdversativas = (conjunção, i) => 
+  ({conjunção, tipo: 'Adversativa'})
+
+const limpaObjeto = (rv, x) => {
+  (rv[x['tipo']] = rv[x['tipo']] || []).push(x['conjunção'])
+  return rv
+}
+
+const classficaConjuncoes = (frase) => 
+    conjunções.aditivas.filter( filtraConjunções )
+    .map( mapeiaAditivas )
+  .concat( 
+    conjunções.adversativas.filter( filtraConjunções )
+    .map( mapeiaAdversativas )
+  )
+  .reduce( limpaObjeto, {})
+
+let frase = 'Eu gosto de JS mas você não e isso me chateia, snif.'
+console.log(frase)
+console.log(classficaConjuncoes(frase))
+
+frase = 'Eu não gostava de Química, porém, entretanto, todavia, contudo hoje eu gosto.'
+console.log(frase)
+console.log(classficaConjuncoes(frase))
+```
