@@ -161,6 +161,7 @@ const sufixos = [
 ## Instruções
 
 1 - Fork 
-2 - Clone o repositorio
-3 - Coloque os exercícios na pasta **exercicio** com o nome do seu user do github
-da seguinte maneira => user.js 
+
+2 - Clone o repositório
+
+3 - Coloque os exercícios na pasta **exercicios** com o nome do seu user do github da seguinte maneira => username.js 
