@@ -130,3 +130,30 @@ frase = 'Eu não gostava de Química, porém, entretanto, todavia, contudo hoje 
 console.log(frase)
 console.log(classficaConjuncoes(frase))
 ```
+
+## Exercícios
+
+```
+eu  programo
+tu  programas
+ele programa
+nós programamos
+vós programais
+eles  programam
+```
+
+Sabendo que o radical é `program` monte a conjugação acima:
+
+```js
+const radical = 'program'
+const sufixos = [
+  { pronome: 'eu', sufixo: 'o' }, 
+  { pronome: 'tu', sufixo: 'as' }, 
+  { pronome: 'ele', sufixo: 'a' }, 
+  { pronome: 'nós', sufixo: 'amos' }, 
+  { pronome: 'vós', sufixo: 'ais' }, 
+  { pronome: 'eles', sufixo: 'am' }
+]
+
+// Crie seu codigo
+```
