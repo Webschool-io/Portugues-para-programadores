@@ -131,7 +131,44 @@ console.log(frase)
 console.log(classficaConjuncoes(frase))
 ```
 
+
+### Colocação Pronomial
+
+É o estudo da colocação dos pronomes oblíquos átonos (me, te, se, o, a, lhe, nos, vos, os, as, lhes) em relação ao verbo.
+
+Os pronomes átonos podem ocupar 3 posições: antes do verbo (próclise), no meio do verbo (mesóclise) e depois do verbo (ênclise).
+
+Esses pronomes se unem aos verbos porque são *“fracos”* na pronúncia.
+
+
+#### Próclise
+
+Na próclise o pronome é posicionado antes do verbo.
+
+> - De modo algum me afastarei daqui.
+
+
+#### Ênclise
+
+Na ênclise o pronome é posicionado após o verbo.
+
+> - Alunos, comportem-se.
+
+
+#### Mesóclise
+
+Usada quando o verbo estiver no futuro do presente (vai acontecer – amarei, amarás, ...) ou no futuro do pretérito (ia acontecer mas não aconteceu – amaria, amarias, ...)
+
+> - Convidar-me-ão para o hackathon.
+
+Se houver uma palavra atrativa, a próclise será obrigatória.
+
+> - Não (palavra atrativa) me convidarão para o dojo.
+
+
 ## Exercícios
+
+### Conjugação
 
 ```
 eu  programo
@@ -156,4 +193,18 @@ const sufixos = [
 ]
 
 // Crie seu codigo
+```
+
+### Colocação Pronomial
+
+Para lhe ajudar nesse exercício leia esse material [Colocação Pronominal (próclise, mesóclise, ênclise)](http://www.infoescola.com/portugues/colocacao-pronominal-proclise-mesoclise-enclise/) e cria um *Array* com os sufixos da conjugação do verbo `programar`, utilizando seus tempos verbais corretamente.
+
+Crie 1 verbo conjugado para cada tipo de colocação:
+
+```
+const radical = 'program'
+const pronomes = ['me', 'te', 'se', 'o', 'a', 'lhe', 'nos', 'vos', 'os', 'as', 'lhes']
+const sufixos = [] // adicione os sufixos das conjugações necessárias
+
+// crie seu código
 ```
