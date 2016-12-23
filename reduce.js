@@ -14,3 +14,10 @@ const mostraConjugação = (acc, cur) => acc += cur + '\n'
 const conjugação = sufixos.map( montaConjugação ).reduce( mostraConjugação, '')
 
 console.log(conjugação)
+
+// eu  programo
+// tu  programas
+// ele programa
+// nós programamos
+// vós programais
+// eles  programam
