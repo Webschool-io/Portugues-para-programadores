@@ -194,7 +194,6 @@ const sufixos = [
 
 // Crie seu codigo
 ```
-
 ### Colocação Pronomial
 
 Para lhe ajudar nesse exercício leia esse material [Colocação Pronominal (próclise, mesóclise, ênclise)](http://www.infoescola.com/portugues/colocacao-pronominal-proclise-mesoclise-enclise/) e cria um *Array* com os sufixos da conjugação do verbo `programar`, utilizando seus tempos verbais corretamente.
@@ -208,3 +207,4 @@ const sufixos = [] // adicione os sufixos das conjugações necessárias
 
 // crie seu código
 ```
+
